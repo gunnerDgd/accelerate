@@ -22,6 +22,9 @@ namespace accelerate::device {
 			operator[](QueryType);
 
 	public:
+		native_handle_type native_handle() { return __M_dev_handle; }
+
+	public:
 		native_handle_type __M_dev_handle;
 	};
 }

@@ -3,15 +3,18 @@
 #include <string>
 
 namespace accelerate::device::query {
-	struct cpu				  { static constexpr int id = CL_DEVICE_TYPE_CPU; };
-	struct gpu				  { static constexpr int id = CL_DEVICE_TYPE_GPU; };
-	struct all				  { static constexpr int id = CL_DEVICE_TYPE_ALL; };
+	struct device_type {};
+	struct query_type  {};
 
-	struct address_size		  { typedef std::uint32_t  type; static constexpr int id = CL_DEVICE_ADDRESS_BITS; };
-	struct compiler_available { typedef bool		   type; static constexpr int id = CL_DEVICE_COMPILER_AVAILABLE; };
-	struct device_type		  { typedef cl_device_type type; static constexpr int id = CL_DEVICE_TYPE; };
-	struct vendor			  { typedef std::string    type; static constexpr int id = CL_DEVICE_VENDOR; };
-	struct name				  { typedef std::string    type; static constexpr int id = CL_DEVICE_NAME; };
+	struct cpu				  : public device_type { static constexpr int id = CL_DEVICE_TYPE_CPU; };
+	struct gpu				  : public device_type { static constexpr int id = CL_DEVICE_TYPE_GPU; };
+	struct all				  : public device_type { static constexpr int id = CL_DEVICE_TYPE_ALL; };
+
+	struct address_size		  : public query_type  { typedef std::uint32_t  type; static constexpr int id = CL_DEVICE_ADDRESS_BITS; };
+	struct compiler_available : public query_type  { typedef bool		    type; static constexpr int id = CL_DEVICE_COMPILER_AVAILABLE; };
+	struct device_type		  : public query_type  { typedef cl_device_type type; static constexpr int id = CL_DEVICE_TYPE; };
+	struct vendor			  : public query_type  { typedef std::string    type; static constexpr int id = CL_DEVICE_VENDOR; };
+	struct name				  : public query_type  { typedef std::string    type; static constexpr int id = CL_DEVICE_NAME; };
 }
 
 namespace accelerate::device {
