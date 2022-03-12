@@ -30,9 +30,18 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\device\device_enumerator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\device\declare.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\device\device_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\source\device\platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\source\device\device.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -19,13 +19,13 @@ namespace accelerate::platform::query {
 
 	struct vendor
 	{
-		static constexpr std::size_t id = CL_PLATFORM_NAME;
+		static constexpr std::size_t id = CL_PLATFORM_VENDOR;
 		typedef			 std::string type;
 	};
 
 	struct name
 	{
-		static constexpr std::size_t id = CL_PLATFORM_VENDOR;
+		static constexpr std::size_t id = CL_PLATFORM_NAME;
 		typedef			 std::string type;
 	};
 }

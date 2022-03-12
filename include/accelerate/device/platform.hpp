@@ -1,11 +1,14 @@
 #pragma once
+#include <accelerate/device/declare.hpp>
 #include <accelerate/device/platform_traits.hpp>
+
 #include <string>
 
 namespace accelerate::platform {
 	class platform
 	{
 		friend class enumerator;
+		friend class accelerate::device::enumerator;
 	public:
 		using native_handle_type = cl_platform_id;
 	private:
@@ -26,10 +29,9 @@ template <typename QueryType>
 auto accelerate::platform::platform::operator[](QueryType)
 {
 	std::size_t				 pf_query_retlen;
-	typename QueryType::type pf_query;
-							 pf_query.reserve(1024);
+	char				     pf_query_retchar[256];
 
-	::clGetPlatformInfo(__M_pf_handle, QueryType::id, 256, (void*)pf_query.c_str(), &pf_query_retlen);
-	return														  pf_query;
+	::clGetPlatformInfo   (__M_pf_handle, QueryType::id, 256, (void*)pf_query_retchar, &pf_query_retlen);
+	return typename QueryType::type(pf_query_retchar, pf_query_retlen);
 }
 

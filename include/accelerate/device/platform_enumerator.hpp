@@ -39,6 +39,10 @@ namespace accelerate::platform {
 		value_type			  operator* ();
 		enumerator::iterator& operator++();
 
+	public:
+		bool operator== (iterator&);
+		bool operator!= (iterator&);
+
 	private:
 		enumerator&			   __M_it_enumerator;
 		enumerator::count_type __M_it_index;
