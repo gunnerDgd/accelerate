@@ -12,7 +12,16 @@ namespace accelerate::device {
 		class iterator;
 
 		template <typename DeviceType>
-		enumerator (DeviceType, platform::platform&);
+		enumerator(DeviceType, platform::platform& pl)
+		{
+			static_assert(std::is_base_of_v<query::device_id, DeviceType>, "[device::enumerator] Error :: Invalid Device Type.");
+
+			::clGetDeviceIDs(pl.__M_pf_handle, DeviceType::id, 0, nullptr, (cl_uint*)&__M_dvenum_count);
+								__M_dvenum_handle = new native_handle_type[__M_dvenum_count];
+
+			::clGetDeviceIDs(pl.__M_pf_handle, DeviceType::id, __M_dvenum_count, __M_dvenum_handle, nullptr);
+		}
+
 		~enumerator();
 
 	public:
@@ -47,11 +56,4 @@ namespace accelerate::device {
 		count_type  __M_it_count;
 		enumerator& __M_it_enum ;
 	};
-}
-
-template <typename DeviceType>
-accelerate::device::enumerator::enumerator(DeviceType, platform::platform& pl)
-	: __M_dvenum_handle(new native_handle_type[256])
-{
-	::clGetDeviceIDs(pl.__M_pf_handle, DeviceType::id, 256, __M_dvenum_handle, (cl_uint*)&__M_dvenum_count);
 }

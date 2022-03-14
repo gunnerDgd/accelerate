@@ -9,10 +9,13 @@
 int main()
 {
 	accelerate::platform::enumerator pf_enum;
+	for (auto&& pf : pf_enum)
+		std::cout << pf[accelerate::platform::version] << std::endl;
+
 	auto							 pf_iterator =  pf_enum.begin();
 	auto							 pf			 = *pf_iterator;
 
-	accelerate::device::enumerator   dv_enum(accelerate::device::gpu, pf);
+	accelerate::device::enumerator   dv_enum(accelerate::device::all, pf);
 	for (auto&& dv : dv_enum)
 		std::cout << dv[accelerate::device::name] << std::endl;
 }

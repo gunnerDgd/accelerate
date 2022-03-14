@@ -15,7 +15,7 @@ accelerate::execution::context accelerate::execution::context::from_device(std::
 }
 
 template <typename DeviceType>
-std::enable_if_t<std::is_base_of_v<accelerate::device::query::device_type, DeviceType>, 
+std::enable_if_t<std::is_base_of_v<accelerate::device::query::device_id, DeviceType>, 
 								   accelerate::execution::context>  accelerate::execution::context::from_device_type(DeviceType)
 {
 	auto		   dv_context = ::clCreateContextFromType(nullptr, DeviceType::id, nullptr, nullptr, nullptr);

@@ -14,9 +14,12 @@ namespace accelerate::execution {
 		context (context&&) noexcept;
 		
 		template <typename DeviceType>
-		static std::enable_if_t<std::is_base_of_v<device::query::device_type, DeviceType>, context> 
+		static std::enable_if_t<std::is_base_of_v<device::query::device_id, DeviceType>, context> 
 					   from_device_type(DeviceType);
 		static context from_device	   (std::initializer_list<device::device>);
+
+	public:
+		native_handle_type native_handle() { return __M_ctx_handle; }
 	
 	private:
 		context(native_handle_type);

@@ -7,21 +7,10 @@ accelerate::platform::enumerator::enumerator() : __M_pf_handle(new native_handle
 }
 
 accelerate::platform::enumerator::iterator::iterator(enumerator& pf_enum) : __M_it_enumerator(pf_enum), 
-																			__M_it_index	 (0)
-{
+																			__M_it_index	 (0)	  {  }
 
-}
-
-accelerate::platform::enumerator::count_type accelerate::platform::enumerator::size()
-{
-	return __M_pf_count;
-}
-
-accelerate::platform::enumerator::iterator   accelerate::platform::enumerator::begin()
-{
-	return iterator(*this);
-}
-
+accelerate::platform::enumerator::count_type accelerate::platform::enumerator::size () { return __M_pf_count; }
+accelerate::platform::enumerator::iterator   accelerate::platform::enumerator::begin() { return iterator(*this); }
 accelerate::platform::enumerator::iterator   accelerate::platform::enumerator::end()
 {
 	iterator end_iterator(*this);
@@ -30,11 +19,7 @@ accelerate::platform::enumerator::iterator   accelerate::platform::enumerator::e
 	return   end_iterator;
 }
 
-accelerate::platform::platform::platform(native_handle_type hnd) : __M_pf_handle(hnd)
-{
-
-}
-
+accelerate::platform::platform::platform(native_handle_type hnd) : __M_pf_handle(hnd) {  }
 accelerate::platform::enumerator::iterator::value_type accelerate::platform::enumerator::iterator::operator* ()
 {
 	return value_type(__M_it_enumerator.__M_pf_handle[__M_it_index]);
@@ -48,12 +33,5 @@ accelerate::platform::enumerator::iterator& accelerate::platform::enumerator::it
 	return *this;
 }
 
-bool accelerate::platform::enumerator::iterator::operator== (iterator& cmp)
-{
-	return cmp.__M_it_index == __M_it_index;
-}
-
-bool accelerate::platform::enumerator::iterator::operator!= (iterator& cmp)
-{
-	return cmp.__M_it_index != __M_it_index;
-}
+bool accelerate::platform::enumerator::iterator::operator== (iterator& cmp) { return cmp.__M_it_index == __M_it_index; }
+bool accelerate::platform::enumerator::iterator::operator!= (iterator& cmp) { return cmp.__M_it_index != __M_it_index; }

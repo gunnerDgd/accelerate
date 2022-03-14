@@ -5,10 +5,12 @@
 #include <string>
 
 namespace accelerate::platform::query {
-	struct profile { static constexpr std::size_t id = CL_PLATFORM_PROFILE; typedef std::string type; };
-	struct version { static constexpr std::size_t id = CL_PLATFORM_VERSION; typedef	std::string type; };
-	struct vendor  { static constexpr std::size_t id = CL_PLATFORM_VENDOR ; typedef std::string type; };
-	struct name    { static constexpr std::size_t id = CL_PLATFORM_NAME   ; typedef std::string type; };
+	struct platform_query {};
+
+	struct profile : public platform_query { static constexpr std::size_t id = CL_PLATFORM_PROFILE; typedef std::string type; };
+	struct version : public platform_query { static constexpr std::size_t id = CL_PLATFORM_VERSION; typedef	std::string type; };
+	struct vendor  : public platform_query { static constexpr std::size_t id = CL_PLATFORM_VENDOR ; typedef std::string type; };
+	struct name    : public platform_query { static constexpr std::size_t id = CL_PLATFORM_NAME   ; typedef std::string type; };
 }
 
 namespace accelerate::platform {
