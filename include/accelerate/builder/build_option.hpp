@@ -44,8 +44,8 @@ namespace accelerate::execution::build_option {
 }
 
 namespace accelerate::execution {
-	inline constexpr build_option::predefine	predefine	;
-	inline constexpr build_option::include_path include_path; 
+	inline constexpr build_option::predefine				 predefine	 ;
+	inline constexpr build_option::include_path				 include_path; 
 
 	inline constexpr build_option::single_precision_constant single_precision_constant;
 	inline constexpr build_option::denorms_zero				 denorms_zero;

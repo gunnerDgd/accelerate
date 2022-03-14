@@ -19,22 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\argument.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\context.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executable.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\kernel.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\queueing\command_queue.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\execution\context.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\execution\executable.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\execution\program.cpp" />
+    <ClCompile Include="..\..\..\..\..\source\queueing\command_queue.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ef692ffd-bad2-4f2e-9b7f-497a3b3bd7a1}</ProjectGuid>
-    <RootNamespace>x64vs2019accelerateexecution</RootNamespace>
+    <ProjectGuid>{2d66f627-f421-4fa7-99b8-60a010e15dbd}</ProjectGuid>
+    <RootNamespace>x64vs2019acceleratequeueing</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -90,8 +84,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Program Files %28x86%29\AMD APP SDK\3.0\include;C:\Users\MinusOne\Projects\accelerate\include;C:\Users\MinusOne\Projects\memory\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\AMD APP SDK\3.0\lib\x86_64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\MinusOne\Projects\accelerate\include;C:\Program Files %28x86%29\AMD APP SDK\3.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

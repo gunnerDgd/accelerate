@@ -10,11 +10,13 @@ namespace accelerate::execution {
 	class kernel<ReturnType(ArgumentType...)>
 	{
 		friend class builder;
-		kernel(executable&, std::string);
 	public:
 		using native_handle_type = ::cl_kernel;
-		kernel(kernel&);
-		kernel(kernel&&);
+		kernel (executable&, std::string);
+		~kernel();
+		
+		kernel (kernel&);
+		kernel (kernel&&);
 
 	public:
 		template <typename... InputArgs>

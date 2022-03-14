@@ -15,30 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\context.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\kernel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\argument.hpp">
+    <ClInclude Include="..\..\..\..\..\include\accelerate\queueing\command_queue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\execution\context.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\source\execution\program.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\source\execution\executable.cpp">
+    <ClCompile Include="..\..\..\..\..\source\queueing\command_queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

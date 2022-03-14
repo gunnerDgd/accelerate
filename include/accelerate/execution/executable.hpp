@@ -1,5 +1,6 @@
 #pragma once
 #include <accelerate/execution/program.hpp>
+#include <fstream>
 
 namespace accelerate::execution {
 	class executable
@@ -11,6 +12,8 @@ namespace accelerate::execution {
 		executable(executable&&);
 	private:
 		executable(program&);
+	public:
+		void export_to(std::ofstream&);
 
 	private:
 		native_handle_type __M_exec_handle;
