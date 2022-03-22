@@ -13,20 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\mapped">
+      <UniqueIdentifier>{5e95bcc9-a8a6-442c-a26a-86156d99ea36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\unmapped">
+      <UniqueIdentifier>{9d2d2ba6-5887-44ea-b8dc-9fe756ec3ddd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped_memory.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_traits.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\mapped_memory.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\mapped\mapped.hpp">
+      <Filter>Header Files\mapped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped\unmapped.hpp">
+      <Filter>Header Files\unmapped</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\source\memory\unmapped_memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\source\memory\mapped_memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

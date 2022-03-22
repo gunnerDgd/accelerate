@@ -19,11 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\mapped_memory.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\mapped\mapped.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_traits.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped_memory.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped\unmapped.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\source\memory\mapped_memory.cpp" />
     <ClCompile Include="..\..\..\..\..\source\memory\unmapped_memory.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -86,7 +87,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\MinusOne\Projects\accelerate\include;C:\Program Files %28x86%29\AMD APP SDK\3.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\MinusOne\Projects\memory\include;C:\Users\MinusOne\Projects\accelerate\include;C:\Program Files %28x86%29\AMD APP SDK\3.0\include;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>C:\Users\MinusOne\Projects\memory\include;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -131,7 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>

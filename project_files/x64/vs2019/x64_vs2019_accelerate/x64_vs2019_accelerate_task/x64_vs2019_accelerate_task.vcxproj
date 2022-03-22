@@ -19,25 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\context.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\declare.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executable.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\execution_traits.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executor.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\kernel.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\execution\context.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\execution\executable.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\execution\executor.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\execution\program.cpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\argument.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task_traits.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\forward.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\declare.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\kernel_task.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\task_event.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ef692ffd-bad2-4f2e-9b7f-497a3b3bd7a1}</ProjectGuid>
-    <RootNamespace>x64vs2019accelerateexecution</RootNamespace>
+    <ProjectGuid>{23a562ce-9a3c-4592-b0b7-9cea6dab641a}</ProjectGuid>
+    <RootNamespace>x64vs2019acceleratetask</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -93,8 +87,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Program Files %28x86%29\AMD APP SDK\3.0\include;C:\Users\MinusOne\Projects\accelerate\include;C:\Users\MinusOne\Projects\memory\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\AMD APP SDK\3.0\lib\x86_64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\MinusOne\Projects\memory\include;C:\Users\MinusOne\Projects\accelerate\include;C:\Program Files %28x86%29\AMD APP SDK\3.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

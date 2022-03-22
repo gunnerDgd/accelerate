@@ -1,0 +1,7 @@
+﻿  context.cpp
+C:\Users\MinusOne\Projects\accelerate\source\execution\context.cpp(29,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  executable.cpp
+C:\Users\MinusOne\Projects\accelerate\source\execution\executable.cpp(10,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  program.cpp
+C:\Users\MinusOne\Projects\accelerate\source\execution\program.cpp(35,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...

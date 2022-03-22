@@ -10,6 +10,7 @@ namespace accelerate::execution {
 	class kernel<ReturnType(ArgumentType...)>
 	{
 		friend class builder;
+		friend class executor;
 	public:
 		using native_handle_type = ::cl_kernel;
 		kernel (executable&, std::string);

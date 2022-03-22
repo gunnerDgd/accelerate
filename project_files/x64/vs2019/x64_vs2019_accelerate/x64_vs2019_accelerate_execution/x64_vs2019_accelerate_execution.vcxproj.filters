@@ -27,7 +27,13 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\argument.hpp">
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\execution_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\declare.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -39,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\source\execution\executable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\source\execution\executor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

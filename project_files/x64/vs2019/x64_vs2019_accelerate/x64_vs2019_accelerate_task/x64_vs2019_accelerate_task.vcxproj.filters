@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\kernel">
+      <UniqueIdentifier>{e5acea00-4645-49b7-b214-5649e88bfde9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\builtin">
+      <UniqueIdentifier>{f86bd4ee-4170-4ce2-9be1-91efd2d5f459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\builtin\memory">
+      <UniqueIdentifier>{f5ced2fa-caf0-4f24-b22b-33accdfc5390}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\argument.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\declare.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\task_event.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\forward.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\kernel_task.hpp">
+      <Filter>Header Files\kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task.hpp">
+      <Filter>Header Files\builtin\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task_traits.hpp">
+      <Filter>Header Files\builtin\memory</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

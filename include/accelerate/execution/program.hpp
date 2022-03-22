@@ -23,7 +23,7 @@ namespace accelerate::execution {
 		template <typename InputIterator>
 		static std::enable_if_t<std::is_same_v<typename InputIterator::value_type, binary>, program>
 			from_binary(context&, InputIterator&&, InputIterator&&);
-	
+
 	private:
 		program(native_handle_type);
 
@@ -93,7 +93,11 @@ accelerate::execution::program::from_source(context& ctx, InputIterator&& begin,
 	program src_return(src_program);
 			src_return.__M_program_target		= src_target;
 			src_return.__M_program_target_count = src_count;
-			
+	
+	delete[] src_ptr   ;
+	delete[] src_size  ;
+	delete[] src_target;
+
 	return  src_return;
 }
 
@@ -125,5 +129,9 @@ accelerate::execution::program::from_binary(context& ctx, InputIterator&& begin,
 			src_return.__M_program_target		= src_target;
 			src_return.__M_program_target_count = src_count;
 	
+	delete[] src_ptr;
+	delete[] src_size;
+	delete[] src_target;
+
 	return  src_return;
 }
