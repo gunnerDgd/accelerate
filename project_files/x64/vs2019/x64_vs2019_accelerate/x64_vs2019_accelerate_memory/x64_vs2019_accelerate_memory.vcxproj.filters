@@ -30,6 +30,9 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped\unmapped.hpp">
       <Filter>Header Files\unmapped</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_operation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\source\memory\unmapped_memory.cpp">

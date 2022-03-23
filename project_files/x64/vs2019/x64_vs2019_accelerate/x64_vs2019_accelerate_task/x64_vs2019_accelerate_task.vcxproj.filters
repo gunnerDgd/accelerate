@@ -24,9 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\argument.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\declare.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -44,6 +41,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task_traits.hpp">
       <Filter>Header Files\builtin\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument.hpp">
+      <Filter>Header Files\kernel</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

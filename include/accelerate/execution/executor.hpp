@@ -1,8 +1,8 @@
 #pragma once
-#include <accelerate/execution/execution_traits.hpp>
-#include <accelerate/execution/declare.hpp>
+#include <accelerate/execution/context.hpp>
 
 #include <accelerate/task/builtin/memory/memory_task.hpp>
+#include <accelerate/task/kernel/kernel_task.hpp>
 
 namespace accelerate::execution {
 	class executor
@@ -16,7 +16,8 @@ namespace accelerate::execution {
 		void dispatch(task::builtin::read_memory &);
 		void dispatch(task::builtin::write_memory&);
 	public:
-		
+		template <typename KernelType>
+		void dispatch(KernelType&&);
 
 	public:
 		native_context_type& get_context  () { return __M_executor_context; }
@@ -26,4 +27,13 @@ namespace accelerate::execution {
 		native_handle_type  __M_executor_cqueue ;
 		execution::context& __M_executor_context;
 	};
+}
+
+template <typename KernelType>
+void accelerate::execution::executor::dispatch(KernelType&& kernel)
+{
+	kernel.			__M_set_argument<0>() ;
+	::clEnqueueTask(__M_executor_cqueue	  ,
+					kernel.__M_task_kernel,
+					0, nullptr, nullptr)  ;
 }

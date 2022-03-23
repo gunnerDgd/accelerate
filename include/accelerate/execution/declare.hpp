@@ -1,5 +1,7 @@
 #pragma once
 
 namespace accelerate::execution {
-	class executor;
+	template <typename... KernelArgs> class kernel  ;
+									  class executor;
+									  class context ;
 }

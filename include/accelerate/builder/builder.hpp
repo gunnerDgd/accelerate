@@ -1,8 +1,11 @@
 #pragma once
 #include <accelerate/builder/build_option.hpp>
 
-#include <accelerate/execution/program.hpp>
-#include <accelerate/execution/executable.hpp>
+#include <accelerate/execution/program/binary.hpp>
+#include <accelerate/execution/program/source.hpp>
+
+#include <accelerate/execution/program/program.hpp>
+#include <accelerate/execution/program/build_target.hpp>
 
 namespace accelerate::execution {
 	class builder
@@ -21,9 +24,9 @@ namespace accelerate::execution {
 			  operator|(OptionType);
 		
 	public:
-		template <typename ProgramType>
-		std::enable_if_t<std::is_same_v<ProgramType, program>, executable>
-			operator()(ProgramType&&);
+		template <typename BuiltTarget>
+		std::enable_if_t<std::is_same_v<BuiltTarget, build_target>, program>
+			operator()(BuiltTarget&&);
 
 	private:
 		std::string __M_builder_option;
@@ -54,16 +57,16 @@ std::enable_if_t <std::is_base_of_v<accelerate::execution::build_option::optimiz
 	return *this;
 }
 
-template <typename ProgramType>
-std::enable_if_t<std::is_same_v<ProgramType, accelerate::execution::program>, accelerate::execution::executable>
-accelerate::execution::builder::operator()(ProgramType&& prog)
+template <typename BuiltTarget>
+std::enable_if_t<std::is_same_v<BuiltTarget, accelerate::execution::build_target>, accelerate::execution::program>
+											 accelerate::execution::builder::operator()(BuiltTarget&& prog)
 {
-	::clBuildProgram(prog.__M_program_handle, 
-					 prog.__M_program_target_count,
-					 prog.__M_program_target	 ,
+	::clBuildProgram(prog.__M_program_handle		,
+					 prog.__M_program_target_count  ,
+					 prog.__M_program_target	    ,
 						  __M_builder_option.c_str(),
 					 nullptr,
 					 nullptr);
 
-	return 
+	return program(prog.__M_program_handle);
 }

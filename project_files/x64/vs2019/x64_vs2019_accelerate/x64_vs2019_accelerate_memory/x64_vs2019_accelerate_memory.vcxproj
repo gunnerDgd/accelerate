@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\mapped\mapped.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_operation.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_traits.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped\unmapped.hpp" />
   </ItemGroup>
@@ -130,7 +131,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>

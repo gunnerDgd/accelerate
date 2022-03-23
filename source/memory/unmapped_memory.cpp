@@ -1,16 +1,16 @@
 #include <accelerate/memory/unmapped/unmapped.hpp>
 
 accelerate::memory::unmapped::~unmapped() { ::clReleaseMemObject(__M_unmapped_handle); }
-accelerate::memory::unmapped::unmapped (unmapped& copy) : __M_unmapped_handle  (copy.__M_unmapped_handle)  ,
-														  __M_unmapped_size    (copy.__M_unmapped_size)    ,
-														  __M_unmapped_executor(copy.__M_unmapped_executor)
+accelerate::memory::unmapped::unmapped (unmapped& copy) : __M_unmapped_handle (copy.__M_unmapped_handle)  ,
+														  __M_unmapped_size   (copy.__M_unmapped_size)    ,
+														  __M_unmapped_context(copy.__M_unmapped_context)
 {
 	::clRetainMemObject(__M_unmapped_handle);
 }
 
-accelerate::memory::unmapped::unmapped(unmapped&& move) : __M_unmapped_handle  (move.__M_unmapped_handle)  ,
-														  __M_unmapped_size    (move.__M_unmapped_size)	   ,
-														  __M_unmapped_executor(move.__M_unmapped_executor)
+accelerate::memory::unmapped::unmapped(unmapped&& move) : __M_unmapped_handle (move.__M_unmapped_handle)  ,
+														  __M_unmapped_size   (move.__M_unmapped_size)	   ,
+														  __M_unmapped_context(move.__M_unmapped_context)
 {
 	move.__M_unmapped_handle = invalid_handle;
 }

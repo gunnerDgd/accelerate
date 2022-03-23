@@ -11,8 +11,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_execu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_builder", "x64_vs2019_accelerate_builder\x64_vs2019_accelerate_builder.vcxproj", "{4B81237C-6DA8-4440-A06C-F8C924978A25}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_queueing", "x64_vs2019_accelerate_queueing\x64_vs2019_accelerate_queueing.vcxproj", "{2D66F627-F421-4FA7-99B8-60A010E15DBD}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_memory", "x64_vs2019_accelerate_memory\x64_vs2019_accelerate_memory.vcxproj", "{E7A1E180-EBA6-4810-8FA5-AFA369B888DA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_task", "x64_vs2019_accelerate_task\x64_vs2019_accelerate_task.vcxproj", "{23A562CE-9A3C-4592-B0B7-9CEA6DAB641A}"
@@ -57,14 +55,6 @@ Global
 		{4B81237C-6DA8-4440-A06C-F8C924978A25}.Release|x64.Build.0 = Release|x64
 		{4B81237C-6DA8-4440-A06C-F8C924978A25}.Release|x86.ActiveCfg = Release|Win32
 		{4B81237C-6DA8-4440-A06C-F8C924978A25}.Release|x86.Build.0 = Release|Win32
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Debug|x64.ActiveCfg = Debug|x64
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Debug|x64.Build.0 = Debug|x64
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Debug|x86.ActiveCfg = Debug|Win32
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Debug|x86.Build.0 = Debug|Win32
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Release|x64.ActiveCfg = Release|x64
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Release|x64.Build.0 = Release|x64
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Release|x86.ActiveCfg = Release|Win32
-		{2D66F627-F421-4FA7-99B8-60A010E15DBD}.Release|x86.Build.0 = Release|Win32
 		{E7A1E180-EBA6-4810-8FA5-AFA369B888DA}.Debug|x64.ActiveCfg = Debug|x64
 		{E7A1E180-EBA6-4810-8FA5-AFA369B888DA}.Debug|x64.Build.0 = Debug|x64
 		{E7A1E180-EBA6-4810-8FA5-AFA369B888DA}.Debug|x86.ActiveCfg = Debug|Win32

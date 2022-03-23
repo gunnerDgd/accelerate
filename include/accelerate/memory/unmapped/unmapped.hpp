@@ -14,8 +14,7 @@ namespace accelerate::memory {
 		static constexpr native_handle_type invalid_handle = nullptr;
 
 		template <typename AccessType>
-		unmapped (execution::executor&, AccessType, size_type) 
-			requires std::is_base_of_v<access_type::access_mode, AccessType>;
+		unmapped (execution::context&, AccessType, size_type);
 		~unmapped();
 
 		unmapped (unmapped&);
@@ -26,19 +25,18 @@ namespace accelerate::memory {
 		size_type		   size			();
 
 	private:
-		native_handle_type   __M_unmapped_handle  ;
-		size_type		     __M_unmapped_size    ;
-		execution::executor& __M_unmapped_executor;
+		native_handle_type  __M_unmapped_handle ;
+		size_type		    __M_unmapped_size   ;
+		execution::context& __M_unmapped_context;
 	};
 }
 
 template <typename AccessType>
-accelerate::memory::unmapped::unmapped(execution::executor& exec, AccessType, size_type size)
-	requires std::is_base_of_v<accelerate::memory::access_type::access_mode, AccessType>
-	: __M_unmapped_executor(exec),
-	  __M_unmapped_size    (size)
+accelerate::memory::unmapped::unmapped(execution::context& exec, AccessType, size_type size)
+	: __M_unmapped_context(exec),
+	  __M_unmapped_size   (size)
 {
-	__M_unmapped_handle = ::clCreateBuffer(exec.get_context().native_handle(),
+	__M_unmapped_handle = ::clCreateBuffer(exec.native_handle(),
 										   AccessType::value,
 										   size,
 										   nullptr, nullptr);

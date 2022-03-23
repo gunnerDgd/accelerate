@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\argument.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task_traits.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\forward.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\declare.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\kernel_task.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\task_event.hpp" />
   </ItemGroup>

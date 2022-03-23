@@ -1,11 +1,8 @@
 #pragma once
-#include <accelerate/execution/executable.hpp>
+#include <accelerate/execution/program/program.hpp>
 #include <type_traits>
 
 namespace accelerate::execution {
-	template <typename... T>
-	class kernel;
-
 	template <typename ReturnType, typename... ArgumentType>
 	class kernel<ReturnType(ArgumentType...)>
 	{
@@ -13,15 +10,13 @@ namespace accelerate::execution {
 		friend class executor;
 	public:
 		using native_handle_type = ::cl_kernel;
-		kernel (executable&, std::string);
+		kernel (program&, std::string);
 		~kernel();
 		
 		kernel (kernel&);
 		kernel (kernel&&);
 
-	public:
-		template <typename... InputArgs>
-		void operator()(InputArgs&&...);
+		native_handle_type native_handle() { return __M_kernel_handle; }
 
 	private:
 		native_handle_type __M_kernel_handle;
@@ -29,13 +24,19 @@ namespace accelerate::execution {
 }
 
 template <typename ReturnType, typename... ArgumentType>
-accelerate::execution::kernel<ReturnType(ArgumentType...)>::kernel(executable& exec, std::string name)
+accelerate::execution::kernel<ReturnType(ArgumentType...)>::kernel(program& exec, std::string name)
 {
-	__M_kernel_handle = ::clCreateKernel(exec.__M_exec_handle, name.c_str(), nullptr);
+	__M_kernel_handle = ::clCreateKernel(exec.__M_program_handle, name.c_str(), nullptr);
+					    ::clRetainKernel(__M_kernel_handle);
 }
 
 template <typename ReturnType, typename... ArgumentType>
-template <typename... InputArgs>
-void accelerate::execution::kernel<ReturnType(ArgumentType...)>::operator()(InputArgs&&... args)
-{
-}
+accelerate::execution::kernel<ReturnType(ArgumentType...)>::~kernel() { ::clReleaseKernel(__M_kernel_handle); }
+
+template <typename ReturnType, typename... ArgumentType>
+accelerate::execution::kernel<ReturnType(ArgumentType...)>::kernel(kernel& copy)  
+	: __M_kernel_handle(copy.__M_kernel_handle) { ::clRetainKernel(__M_kernel_handle); }
+
+template <typename ReturnType, typename... ArgumentType>
+accelerate::execution::kernel<ReturnType(ArgumentType...)>::kernel(kernel&& move) 
+	: __M_kernel_handle(move.__M_kernel_handle) {  }

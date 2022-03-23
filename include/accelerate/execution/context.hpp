@@ -1,5 +1,7 @@
 #pragma once
 #include <accelerate/device/device.hpp>
+#include <accelerate/execution/declare.hpp>
+
 #include <initializer_list>
 
 namespace accelerate::execution {

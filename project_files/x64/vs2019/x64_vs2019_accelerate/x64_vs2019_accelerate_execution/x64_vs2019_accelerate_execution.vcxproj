@@ -21,17 +21,19 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\context.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\declare.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executable.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\execution_traits.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executor.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\kernel.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\binary.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\program.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\build_target.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\source.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\source\execution\context.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\execution\executable.cpp" />
+    <ClCompile Include="..\..\..\..\..\source\execution\build_target.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\executor.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\program.cpp" />
+    <ClCompile Include="..\..\..\..\..\source\program\source.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -136,10 +138,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>

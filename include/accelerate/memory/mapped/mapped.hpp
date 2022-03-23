@@ -16,14 +16,15 @@ namespace accelerate::memory {
 
 	public:
 		template <typename MemoryObject, typename AccessType>
-		mapped (execution::executor&, AccessType, MemoryObject&&);
+		mapped (execution::context&, AccessType, MemoryObject&&);
+		template <typename AccessType, typename MemoryType>
+		mapped (execution::context&, AccessType, MemoryType*);
 		~mapped();
 
 		mapped (mapped&);
 		mapped (mapped&&);
 
 	public:
-		execution::executor& get_executor () { return __M_mapped_executor; }
 		native_handle_type   native_handle() { return __M_mapped_handle  ; }
 		size_type			 size		  () { return __M_mapped_size    ; }
 
@@ -31,20 +32,32 @@ namespace accelerate::memory {
 		native_handle_type   __M_mapped_handle ;
 		pointer_type	     __M_mapped_pointer;
 		size_type		     __M_mapped_size   ;
-
-		execution::executor& __M_mapped_executor;
 		execution::context & __M_mapped_context ;
 	};
 }
 
+template <typename AccessType, typename MemoryType>
+accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryType* memobj)
+	: __M_mapped_size    (sizeof(MemoryType)),
+	  __M_mapped_pointer (memobj),
+	  __M_mapped_context (exec.native_handle())
+{
+	__M_mapped_handle = ::clCreateBuffer(exec.native_handle(),
+										 AccessType::value ,
+										 __M_mapped_size   ,
+										 __M_mapped_pointer,
+										 nullptr);
+
+					    ::clRetainMemObject(__M_mapped_handle);
+}
+
 template <typename MemoryObject, typename AccessType>
-accelerate::memory::mapped::mapped(execution::executor& exec, AccessType, MemoryObject&& memobj)
+accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryObject&& memobj)
 	: __M_mapped_size    (memobj.size()),
 	  __M_mapped_pointer (memobj.address()),
-	  __M_mapped_executor(exec),
-	  __M_mapped_context (exec.get_context())
+	  __M_mapped_context (exec.native_handle())
 {
-	__M_mapped_handle = ::clCreateBuffer(exec.get_context().native_handle(),
+	__M_mapped_handle = ::clCreateBuffer(exec.native_handle(),
 										 AccessType::value ,
 										 __M_mapped_size   ,
 										 __M_mapped_pointer,
