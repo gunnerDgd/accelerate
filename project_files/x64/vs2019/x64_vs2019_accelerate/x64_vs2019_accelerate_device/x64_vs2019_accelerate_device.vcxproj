@@ -98,7 +98,7 @@
     <IncludePath>C:\Program Files %28x86%29\AMD APP SDK\3.0\include;C:\Users\MinusOne\Projects\accelerate\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\AMD APP SDK\3.0\lib\x86_64;$(LibraryPath)</LibraryPath>
     <OutDir>C:\Users\MinusOne\Projects\accelerate\libs\x64\windows\</OutDir>
-    <TargetName>accel_device</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

@@ -7,6 +7,7 @@ namespace accelerate::execution {
 	{
 		friend class program;
 		friend class builder;
+		friend class build_target;
 
 		enum class source_location { memory_object, heap };
 		using	   source_pointer = std::uint8_t* ;
@@ -14,11 +15,11 @@ namespace accelerate::execution {
 		using      source_target  = device::device;
 
 		source (device::device&, source_location, source_pointer, source_size);
-		~source();
 	public:
 		using native_device_handle = device::device::native_handle_type;
 		using string_type		   = std::string;
 	public:
+		~source();
 		template <typename MemoryObject>
 		static source   from_memory  (device::device&, MemoryObject&&);
 		static source   from_string  (device::device&, std::string)   ;

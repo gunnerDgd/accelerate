@@ -33,10 +33,11 @@ template <typename QueryType>
 std::enable_if_t<std::is_same_v<std::string, typename QueryType::type>, typename QueryType::type>
 accelerate::device::device::operator[](QueryType)
 {
-	char		dv_query_res[256];
+	char*		dv_query_res ;
 	std::size_t dv_query_size;
 
-	::clGetDeviceInfo (__M_dev_handle, QueryType::id, 256, (void*)dv_query_res, &dv_query_size);
+	::clGetDeviceInfo (__M_dev_handle, QueryType::id, 0			   , nullptr	 , &dv_query_size); dv_query_res = new char[dv_query_size];
+	::clGetDeviceInfo (__M_dev_handle, QueryType::id, dv_query_size, dv_query_res, &dv_query_size);
 	return std::string(dv_query_res, dv_query_size);
 }
 

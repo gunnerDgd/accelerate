@@ -44,9 +44,14 @@ namespace accelerate::execution::build_option {
 }
 
 namespace accelerate::execution {
-	inline constexpr build_option::predefine				 predefine	 ;
-	inline constexpr build_option::include_path				 include_path; 
 
-	inline constexpr build_option::single_precision_constant single_precision_constant;
-	inline constexpr build_option::denorms_zero				 denorms_zero;
+	inline constexpr build_option::single_precision_constant single_precision_constant{};
+	inline constexpr build_option::denorms_zero				 denorms_zero			  {};
+
+	inline constexpr build_option::disable_optimization		 disable_optimization	  {};
+	inline constexpr build_option::strict_aliasing			 strict_aliasing		  {};
+	inline constexpr build_option::enable_mad				 enable_mad				  {};
+	inline constexpr build_option::no_signed_zero			 no_signed_zero			  {};
+	inline constexpr build_option::unsafe_math_optimization  unsafe_math_optimization {};
+	inline constexpr build_option::finite_math_only			 finite_math_only		  {};
 }

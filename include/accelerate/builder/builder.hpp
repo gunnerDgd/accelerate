@@ -25,7 +25,7 @@ namespace accelerate::execution {
 		
 	public:
 		template <typename BuiltTarget>
-		std::enable_if_t<std::is_same_v<BuiltTarget, build_target>, program>
+		std::enable_if_t<std::is_same_v<std::remove_reference_t<BuiltTarget>, build_target>, program>
 			operator()(BuiltTarget&&);
 
 	private:
@@ -58,12 +58,16 @@ std::enable_if_t <std::is_base_of_v<accelerate::execution::build_option::optimiz
 }
 
 template <typename BuiltTarget>
-std::enable_if_t<std::is_same_v<BuiltTarget, accelerate::execution::build_target>, accelerate::execution::program>
-											 accelerate::execution::builder::operator()(BuiltTarget&& prog)
+std::enable_if_t<std::is_same_v<std::remove_reference_t<BuiltTarget>, accelerate::execution::build_target>, accelerate::execution::program>
+																	  accelerate::execution::builder::operator()(BuiltTarget&& prog)
 {
+	auto build_native_handle = new device::device::native_handle_type[prog.__M_program_target_count];
+	for(std::size_t i = 0 ; i < prog.__M_program_target_count ; i++)
+		 build_native_handle[i] = (prog.__M_program_target)[i]->native_handle();
+
 	::clBuildProgram(prog.__M_program_handle		,
 					 prog.__M_program_target_count  ,
-					 prog.__M_program_target	    ,
+					 build_native_handle			,
 						  __M_builder_option.c_str(),
 					 nullptr,
 					 nullptr);

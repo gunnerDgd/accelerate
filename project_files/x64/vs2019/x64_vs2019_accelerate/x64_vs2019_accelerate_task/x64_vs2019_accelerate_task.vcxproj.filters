@@ -45,5 +45,8 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument.hpp">
       <Filter>Header Files\kernel</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument_utility.hpp">
+      <Filter>Header Files\kernel</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

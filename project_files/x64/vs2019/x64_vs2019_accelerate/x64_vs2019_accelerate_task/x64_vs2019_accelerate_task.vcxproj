@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\forward.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\declare.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument_utility.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\kernel_task.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\task_event.hpp" />
   </ItemGroup>
@@ -88,6 +89,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\Users\MinusOne\Projects\memory\include;C:\Users\MinusOne\Projects\accelerate\include;C:\Program Files %28x86%29\AMD APP SDK\3.0\include;$(IncludePath)</IncludePath>
+    <OutDir>C:\Users\MinusOne\Projects\accelerate\libs\x64\windows\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

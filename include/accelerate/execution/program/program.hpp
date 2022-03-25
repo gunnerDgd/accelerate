@@ -5,7 +5,9 @@
 namespace accelerate::execution {
 	class program
 	{
-		template <typename... T> class kernel;
+		template <typename... T> 
+		friend class kernel ;
+		friend class builder;
 	public:
 		using native_handle_type = ::cl_program;
 

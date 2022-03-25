@@ -8,12 +8,24 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_device_test", "x64_vs2019_accelerate_device_test\x64_vs2019_accelerate_device_test.vcxproj", "{B660CE9D-9B52-466B-913F-2E2C62C0AFC0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_execution", "x64_vs2019_accelerate_execution\x64_vs2019_accelerate_execution.vcxproj", "{EF692FFD-BAD2-4F2E-9B7F-497A3B3BD7A1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9FA7F7E9-A344-41A7-9A4B-E11D34651231} = {9FA7F7E9-A344-41A7-9A4B-E11D34651231}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_builder", "x64_vs2019_accelerate_builder\x64_vs2019_accelerate_builder.vcxproj", "{4B81237C-6DA8-4440-A06C-F8C924978A25}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_memory", "x64_vs2019_accelerate_memory\x64_vs2019_accelerate_memory.vcxproj", "{E7A1E180-EBA6-4810-8FA5-AFA369B888DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9FA7F7E9-A344-41A7-9A4B-E11D34651231} = {9FA7F7E9-A344-41A7-9A4B-E11D34651231}
+		{EF692FFD-BAD2-4F2E-9B7F-497A3B3BD7A1} = {EF692FFD-BAD2-4F2E-9B7F-497A3B3BD7A1}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x64_vs2019_accelerate_task", "x64_vs2019_accelerate_task\x64_vs2019_accelerate_task.vcxproj", "{23A562CE-9A3C-4592-B0B7-9CEA6DAB641A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7A1E180-EBA6-4810-8FA5-AFA369B888DA} = {E7A1E180-EBA6-4810-8FA5-AFA369B888DA}
+		{9FA7F7E9-A344-41A7-9A4B-E11D34651231} = {9FA7F7E9-A344-41A7-9A4B-E11D34651231}
+		{EF692FFD-BAD2-4F2E-9B7F-497A3B3BD7A1} = {EF692FFD-BAD2-4F2E-9B7F-497A3B3BD7A1}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

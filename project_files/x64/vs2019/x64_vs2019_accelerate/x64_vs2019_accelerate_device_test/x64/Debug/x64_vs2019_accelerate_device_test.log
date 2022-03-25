@@ -1,6 +1,2 @@
-﻿  device.cpp
-C:\Program Files (x86)\AMD APP SDK\3.0\include\CL\cl.hpp(4240,21): warning C4996: 'clCreateSampler': was declared deprecated
-C:\Program Files (x86)\AMD APP SDK\3.0\include\CL\cl.hpp(5084,25): warning C4996: 'clCreateCommandQueue': was declared deprecated
-C:\Program Files (x86)\AMD APP SDK\3.0\include\CL\cl.hpp(5101,21): warning C4996: 'clCreateCommandQueue': was declared deprecated
-C:\Program Files (x86)\AMD APP SDK\3.0\include\CL\cl.hpp(5878,15): warning C4996: 'clEnqueueTask': was declared deprecated
-  x64_vs2019_accelerate_device_test.vcxproj -> C:\Users\MinusOne\Projects\accelerate\project_files\x64\vs2019\x64_vs2019_accelerate\x64\Debug\x64_vs2019_accelerate_device_test.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1092,5): error MSB6006: "link.exe" exited with code 1104.
+LINK : fatal error LNK1104: cannot open file 'accel_device.lib'

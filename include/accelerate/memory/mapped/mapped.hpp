@@ -1,5 +1,5 @@
 #pragma once
-#include <accelerate/execution/executor.hpp>
+#include <accelerate/execution/context.hpp>
 #include <accelerate/memory/memory_traits.hpp>
 
 namespace accelerate::memory {
@@ -18,7 +18,9 @@ namespace accelerate::memory {
 		template <typename MemoryObject, typename AccessType>
 		mapped (execution::context&, AccessType, MemoryObject&&);
 		template <typename AccessType, typename MemoryType>
-		mapped (execution::context&, AccessType, MemoryType*);
+		mapped (execution::context&, AccessType, MemoryType*, size_type);
+		template <typename AccessType, typename MemoryType, std::size_t MemoryCount>
+		mapped (execution::context&, AccessType, MemoryType(&)[MemoryCount]);
 		~mapped();
 
 		mapped (mapped&);
@@ -36,11 +38,26 @@ namespace accelerate::memory {
 	};
 }
 
+template <typename AccessType, typename MemoryType, std::size_t MemoryCount>
+accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryType(&memobj)[MemoryCount])
+	: __M_mapped_size	(sizeof(MemoryType) * MemoryCount),
+	  __M_mapped_pointer((pointer_type)memobj),
+	  __M_mapped_context(exec)
+{
+	__M_mapped_handle = ::clCreateBuffer(exec.native_handle(),
+										 AccessType::value ,
+										 __M_mapped_size   ,
+										 __M_mapped_pointer,
+										 nullptr);
+
+					    ::clRetainMemObject(__M_mapped_handle);
+}
+
 template <typename AccessType, typename MemoryType>
-accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryType* memobj)
-	: __M_mapped_size    (sizeof(MemoryType)),
-	  __M_mapped_pointer (memobj),
-	  __M_mapped_context (exec.native_handle())
+accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryType* memobj, size_type memsize)
+	: __M_mapped_size				   (memsize),
+	  __M_mapped_pointer ((pointer_type)memobj) ,
+	  __M_mapped_context			   (exec)
 {
 	__M_mapped_handle = ::clCreateBuffer(exec.native_handle(),
 										 AccessType::value ,

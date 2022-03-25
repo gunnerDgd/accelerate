@@ -6,6 +6,7 @@ namespace accelerate::execution {
 	{
 		friend class program;
 		friend class builder;
+		friend class build_target;
 
 		using		 binary_pointer = std::uint8_t*  ;
 		using		 binary_size    = std::size_t    ;
@@ -29,8 +30,3 @@ accelerate::execution::binary::from_memory(device::device& src_dev, MemoryObject
 {
 	return binary(src_dev, src_mem.address(), src_mem.size());
 }
-
-accelerate::execution::binary::binary(device::device& src_dev, binary_pointer src_pointer, binary_size src_size)
-	: __M_binary_device (src_dev)	 ,
-	  __M_binary_pointer(src_pointer),
-	  __M_binary_size	(src_size)	 {  }

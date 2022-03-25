@@ -29,6 +29,7 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\source.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\source\execution\binary.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\context.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\build_target.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\executor.cpp" />
@@ -97,6 +98,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\Program Files %28x86%29\AMD APP SDK\3.0\include;C:\Users\MinusOne\Projects\accelerate\include;C:\Users\MinusOne\Projects\memory\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\AMD APP SDK\3.0\lib\x86_64;$(LibraryPath)</LibraryPath>
+    <OutDir>C:\Users\MinusOne\Projects\accelerate\libs\x64\windows\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

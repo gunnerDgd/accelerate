@@ -1,5 +1,6 @@
 #pragma once
 #include <accelerate/execution/context.hpp>
+#include <accelerate/device/device.hpp>
 
 #include <accelerate/task/builtin/memory/memory_task.hpp>
 #include <accelerate/task/kernel/kernel_task.hpp>
@@ -10,7 +11,10 @@ namespace accelerate::execution {
 	public:
 		using native_handle_type  = ::cl_command_queue;
 		using native_context_type = execution::context;
-		class event;
+		
+	public:
+		executor (device::device&, context&);
+		~executor() {}
 
 	public:
 		void dispatch(task::builtin::read_memory &);
@@ -26,13 +30,14 @@ namespace accelerate::execution {
 	private:
 		native_handle_type  __M_executor_cqueue ;
 		execution::context& __M_executor_context;
+		device::device&		__M_executor_device ;
 	};
 }
 
 template <typename KernelType>
 void accelerate::execution::executor::dispatch(KernelType&& kernel)
 {
-	kernel.			__M_set_argument<0>() ;
+	kernel.			__M_set_argument<0>(kernel.__M_task_argument);
 	::clEnqueueTask(__M_executor_cqueue	  ,
 					kernel.__M_task_kernel,
 					0, nullptr, nullptr)  ;
