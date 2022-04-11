@@ -1,84 +1,48 @@
 #pragma once
-#include <accelerate/execution/context.hpp>
-#include <accelerate/memory/memory_traits.hpp>
+#include <accelerate/memory/memory.hpp>
 
 namespace accelerate::memory {
-	class mapped
+	template <typename MemoryType, device_memory::size_type MemoryCount> 
+	class device_memory::mapped
 	{
 	public:
-		using pointer_type	  = std::uint8_t* ;
-		using size_type		  = std::size_t   ;
-		using difference_type = std::ptrdiff_t;
-		
-		using			 native_context_type = execution::context::native_handle_type;
-		using			 native_handle_type  = ::cl_mem;
-		static constexpr native_handle_type invalid_handle = nullptr;
+		using								   value_type     = MemoryType ;
+		using								   pointer		  = MemoryType*;
+		using								   reference      = MemoryType&;
+		static inline constexpr device_memory::size_type size = MemoryCount * sizeof(MemoryType);
 
 	public:
 		template <typename MemoryObject, typename AccessType>
-		mapped (execution::context&, AccessType, MemoryObject&&);
-		template <typename AccessType, typename MemoryType>
-		mapped (execution::context&, AccessType, MemoryType*, size_type);
-		template <typename AccessType, typename MemoryType, std::size_t MemoryCount>
-		mapped (execution::context&, AccessType, MemoryType(&)[MemoryCount]);
+		mapped (executor_type&, AccessType, MemoryObject&&);
 		~mapped();
 
-		mapped (mapped&);
-		mapped (mapped&&);
+		mapped (const mapped&);
+		mapped (const mapped&&);
 
 	public:
-		native_handle_type   native_handle() { return __M_mapped_handle  ; }
-		size_type			 size		  () { return __M_mapped_size    ; }
+		device_memory& get_memory() { return __M_mapped_handle; }
 
 	private:
-		native_handle_type   __M_mapped_handle ;
-		pointer_type	     __M_mapped_pointer;
-		size_type		     __M_mapped_size   ;
-		execution::context & __M_mapped_context ;
+		device_memory __M_mapped_handle;
 	};
 }
 
-template <typename AccessType, typename MemoryType, std::size_t MemoryCount>
-accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryType(&memobj)[MemoryCount])
-	: __M_mapped_size	(sizeof(MemoryType) * MemoryCount),
-	  __M_mapped_pointer((pointer_type)memobj),
-	  __M_mapped_context(exec)
-{
-	__M_mapped_handle = ::clCreateBuffer(exec.native_handle(),
-										 AccessType::value ,
-										 __M_mapped_size   ,
-										 __M_mapped_pointer,
-										 nullptr);
-
-					    ::clRetainMemObject(__M_mapped_handle);
-}
-
-template <typename AccessType, typename MemoryType>
-accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryType* memobj, size_type memsize)
-	: __M_mapped_size				   (memsize),
-	  __M_mapped_pointer ((pointer_type)memobj) ,
-	  __M_mapped_context			   (exec)
-{
-	__M_mapped_handle = ::clCreateBuffer(exec.native_handle(),
-										 AccessType::value ,
-										 __M_mapped_size   ,
-										 __M_mapped_pointer,
-										 nullptr);
-
-					    ::clRetainMemObject(__M_mapped_handle);
-}
-
+template <typename MemoryType, accelerate::memory::device_memory::size_type MemoryCount>
 template <typename MemoryObject, typename AccessType>
-accelerate::memory::mapped::mapped(execution::context& exec, AccessType, MemoryObject&& memobj)
-	: __M_mapped_size    (memobj.size()),
-	  __M_mapped_pointer (memobj.address()),
-	  __M_mapped_context (exec.native_handle())
-{
-	__M_mapped_handle = ::clCreateBuffer(exec.native_handle(),
-										 AccessType::value ,
-										 __M_mapped_size   ,
-										 __M_mapped_pointer,
-										 nullptr);
+accelerate::memory::device_memory::mapped<MemoryType, MemoryCount>::mapped(executor_type& exec, AccessType, MemoryObject&& memobj)
+	: __M_mapped_handle(exec, ::clCreateBuffer(exec.native_handle(),
+											   AccessType::value   ,
+											   memobj.size()	   ,
+											   memobj.pointer()    ,
+											   nullptr))		   {  }
 
-					    ::clRetainMemObject(__M_mapped_handle);
-}
+template <typename MemoryType, accelerate::memory::device_memory::size_type MemoryCount>
+accelerate::memory::device_memory::mapped<MemoryType, MemoryCount>::~mapped() {  }
+
+template <typename MemoryType, accelerate::memory::types::size_type MemoryCount>
+accelerate::memory::device_memory::mapped<MemoryType, MemoryCount>::mapped(const mapped& copy)
+	: __M_mapped_handle(copy.__M_mapped_handle)								  {  }
+
+template <typename MemoryType, accelerate::memory::types::size_type MemoryCount>
+accelerate::memory::device_memory::mapped<MemoryType, MemoryCount>::mapped(const mapped&& move)
+	: __M_mapped_handle(std::move(move)) {  }

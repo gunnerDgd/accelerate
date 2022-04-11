@@ -1,19 +1,19 @@
-#include <accelerate/execution/program/source.hpp>
+#include <accelerate/builder/source.hpp>
 
-accelerate::execution::source::source(device::device& src_device, source_location src_location, source_pointer src_ptr, source_size src_len)
+accelerate::build::source::source(device::device& src_device, source_location src_location, source_pointer src_ptr, source_size src_len)
 	: __M_src_device  (src_device) ,
 	  __M_src_pointer (src_ptr)    ,
 	  __M_src_size    (src_len)    ,
 	  __M_src_location(src_location) {  }
 
-accelerate::execution::source::~source()
+accelerate::build::source::~source()
 {
 	if (__M_src_location == source_location::heap)
 		delete[] __M_src_pointer;
 }
 
-accelerate::execution::source 
-accelerate::execution::source::from_string(device::device& src_device, std::string src_string)
+accelerate::build::source
+accelerate::build::source::from_string(device::device& src_device, std::string src_string)
 {
 	std::size_t src_size   = src_string.size();
 	char*		src_memory = new char[src_size];

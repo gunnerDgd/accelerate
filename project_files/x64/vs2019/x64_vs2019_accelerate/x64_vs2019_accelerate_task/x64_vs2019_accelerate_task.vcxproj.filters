@@ -16,11 +16,8 @@
     <Filter Include="Header Files\kernel">
       <UniqueIdentifier>{e5acea00-4645-49b7-b214-5649e88bfde9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\builtin">
-      <UniqueIdentifier>{f86bd4ee-4170-4ce2-9be1-91efd2d5f459}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\builtin\memory">
-      <UniqueIdentifier>{f5ced2fa-caf0-4f24-b22b-33accdfc5390}</UniqueIdentifier>
+    <Filter Include="Header Files\kernel\argument">
+      <UniqueIdentifier>{a29f0a80-0220-4c6f-8621-f2e52f6094eb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,19 +30,19 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\forward.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\kernel_task.hpp">
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\binded_task.hpp">
       <Filter>Header Files\kernel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task.hpp">
-      <Filter>Header Files\builtin\memory</Filter>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\event\event.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task_traits.hpp">
-      <Filter>Header Files\builtin\memory</Filter>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument\argument_utility.hpp">
+      <Filter>Header Files\kernel\argument</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument.hpp">
-      <Filter>Header Files\kernel</Filter>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument\mapped_argument.hpp">
+      <Filter>Header Files\kernel\argument</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument_utility.hpp">
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\await_task.hpp">
       <Filter>Header Files\kernel</Filter>
     </ClInclude>
   </ItemGroup>

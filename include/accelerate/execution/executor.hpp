@@ -2,35 +2,28 @@
 #include <accelerate/execution/context.hpp>
 #include <accelerate/device/device.hpp>
 
-#include <accelerate/task/builtin/memory/memory_task.hpp>
-#include <accelerate/task/kernel/kernel_task.hpp>
-
 namespace accelerate::execution {
 	class executor
 	{
 	public:
-		using native_handle_type  = ::cl_command_queue;
-		using native_context_type = execution::context;
+		using native_handle_type = ::cl_command_queue;
+		using context_type		 = execution::context;
 		
 	public:
 		executor (device::device&, context&);
 		~executor() {}
-
-	public:
-		void dispatch(task::builtin::read_memory &);
-		void dispatch(task::builtin::write_memory&);
 	public:
 		template <typename KernelType>
 		void dispatch(KernelType&&);
 
 	public:
-		native_context_type& get_context  () { return __M_executor_context; }
-		native_handle_type   native_handle() { return __M_executor_cqueue ; }
+		context_type&      get_context  ();
+		native_handle_type native_handle();
 
 	private:
-		native_handle_type  __M_executor_cqueue ;
-		execution::context& __M_executor_context;
-		device::device&		__M_executor_device ;
+		native_handle_type __M_executor_cqueue ;
+		context_type      &__M_executor_context;
+		device::device&	   __M_executor_device ;
 	};
 }
 

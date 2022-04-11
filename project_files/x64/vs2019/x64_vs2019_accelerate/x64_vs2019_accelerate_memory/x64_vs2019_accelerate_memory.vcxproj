@@ -19,14 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\adapter\mapped_variable.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\adapter\pointer.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\declare.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\mapped\mapped.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_operation.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\utility.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_traits.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped\unmapped.hpp" />
+    <ClInclude Include="variable.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\memory\mapped_memory.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\memory\unmapped_memory.cpp" />
+    <ClCompile Include="..\..\..\..\..\source\memory\device_memory.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -19,8 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\builder\binary.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\builder\builder.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\builder\build_option.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\builder\build_target.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\builder\declare.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\builder\source.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\source\builder\binary.cpp" />
+    <ClCompile Include="..\..\..\..\..\source\builder\build_target.cpp" />
+    <ClCompile Include="..\..\..\..\..\source\builder\source.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -9,9 +9,14 @@ C:\Users\MinusOne\Projects\accelerate\examples\basic_opencl_test\ocltest.cpp(32)
           [
               BuiltTarget=accelerate::execution::build_target &
           ]
-C:\Users\MinusOne\Projects\accelerate\include\accelerate\task\kernel\argument_utility.hpp(26,1): error C2440: '<function-style-cast>': cannot convert from 'accelerate::task::kernel::argument<int *>' to 'std::tuple<accelerate::task::kernel::argument<int *>>'
-C:\Users\MinusOne\Projects\accelerate\include\accelerate\task\kernel\argument_utility.hpp(26,1): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\MinusOne\Projects\accelerate\include\accelerate\task\kernel\argument_utility.hpp(16): message : see reference to function template instantiation 'std::tuple<accelerate::task::kernel::argument<int *>> accelerate::task::kernel::make_argument<int(&)[16]>(accelerate::execution::context &,ArgumentType)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.31.31103\include\tuple(871,18): error C2440: '<function-style-cast>': cannot convert from '_Ty' to '_Ttype'
+          with
+          [
+              _Ty=accelerate::task::kernel::argument<int *>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.31.31103\include\tuple(869,1): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\MinusOne\Projects\accelerate\include\accelerate\task\kernel\argument_utility.hpp(28): message : see reference to function template instantiation 'std::tuple<accelerate::task::kernel::argument<int *>> std::make_tuple<accelerate::task::kernel::argument<int *>>(accelerate::task::kernel::argument<int *> &&)' being compiled
+C:\Users\MinusOne\Projects\accelerate\include\accelerate\task\kernel\argument_utility.hpp(19): message : see reference to function template instantiation 'std::tuple<accelerate::task::kernel::argument<int *>> accelerate::task::kernel::make_argument<int(&)[16]>(accelerate::execution::context &,ArgumentType)' being compiled
           with
           [
               ArgumentType=int (&)[16]
@@ -21,3 +26,16 @@ C:\Users\MinusOne\Projects\accelerate\examples\basic_opencl_test\ocltest.cpp(37)
           [
               ArgumentType=int (&)[16]
           ]
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.31.31103\include\tuple(960,16): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to '_Ret'
+          with
+          [
+              _Ret=std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.31.31103\include\tuple(959,1): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.31.31103\include\tuple(964): message : see reference to function template instantiation '_Ret std::_Tuple_cat<std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>>,0,0,1,0,1,1,std::tuple<_Ty &&,std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>> &&>>(std::integer_sequence<size_t,0,0,1>,std::integer_sequence<size_t,0,1,1>,std::tuple<_Ty &&,std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>> &&> &&)' being compiled
+          with
+          [
+              _Ret=std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>>,
+              _Ty=std::tuple<accelerate::task::kernel::argument<int *>>
+          ]
+C:\Users\MinusOne\Projects\accelerate\include\accelerate\task\kernel\argument_utility.hpp(19): message : see reference to function template instantiation 'std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>> std::tuple_cat<std::tuple<accelerate::task::kernel::argument<int *>>,std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>>>(std::tuple<accelerate::task::kernel::argument<int *>> &&,std::tuple<accelerate::task::kernel::argument<int *>,accelerate::task::kernel::argument<int *>> &&)' being compiled

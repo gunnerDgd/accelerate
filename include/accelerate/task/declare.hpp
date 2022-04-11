@@ -1,13 +1,11 @@
 #pragma once
+#include <CL/cl.hpp>
+
+#include <accelerate/execution/kernel.hpp>
+#include <accelerate/memory/memory.hpp>
 
 namespace accelerate::task {
-namespace builtin		   {
-	class read_memory ;
-	class write_memory;
-}
-
-namespace kernel {
-	template <typename KernelReturn, typename... KernelArgs> class task;
-	template <typename ArgumentType>						 class argument;
-}
+															 class event ;
+	template <typename KernelReturn, typename... KernelArgs> class binded;
+	template <typename KernelReturn, typename... KernelArgs> class await ;
 }

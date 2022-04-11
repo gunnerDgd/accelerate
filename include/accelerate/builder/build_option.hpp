@@ -5,7 +5,7 @@
 #include <filesystem>
 #include <string_view>
 
-namespace accelerate::execution::build_option {
+namespace accelerate::build::options {
 	using namespace std::string_literals;
 
 	struct build_option						  {};
@@ -43,15 +43,15 @@ namespace accelerate::execution::build_option {
 	struct finite_math_only			 : public optimization { static constexpr const char* option = "-cl-finite-math-only"; };	
 }
 
-namespace accelerate::execution {
+namespace accelerate::build {
 
-	inline constexpr build_option::single_precision_constant single_precision_constant{};
-	inline constexpr build_option::denorms_zero				 denorms_zero			  {};
+	inline constexpr options::single_precision_constant  single_precision_constant{};
+	inline constexpr options::denorms_zero				 denorms_zero			  {};
 
-	inline constexpr build_option::disable_optimization		 disable_optimization	  {};
-	inline constexpr build_option::strict_aliasing			 strict_aliasing		  {};
-	inline constexpr build_option::enable_mad				 enable_mad				  {};
-	inline constexpr build_option::no_signed_zero			 no_signed_zero			  {};
-	inline constexpr build_option::unsafe_math_optimization  unsafe_math_optimization {};
-	inline constexpr build_option::finite_math_only			 finite_math_only		  {};
+	inline constexpr options::disable_optimization		 disable_optimization	  {};
+	inline constexpr options::strict_aliasing			 strict_aliasing		  {};
+	inline constexpr options::enable_mad				 enable_mad				  {};
+	inline constexpr options::no_signed_zero			 no_signed_zero			  {};
+	inline constexpr options::unsafe_math_optimization   unsafe_math_optimization {};
+	inline constexpr options::finite_math_only			 finite_math_only		  {};
 }

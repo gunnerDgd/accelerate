@@ -1,44 +1,47 @@
 #pragma once
-#include <accelerate/execution/context.hpp>
-#include <accelerate/memory/memory_traits.hpp>
+#include <accelerate/memory/memory.hpp>
 
 namespace accelerate::memory {
-	class unmapped
+	template <typename MemoryType, device_memory::size_type MemoryCount> 
+	class device_memory::unmapped
 	{
 	public:
-		using size_type		  = std::size_t;
-		using difference_type = std::ptrdiff_t;
-		
-		using			 native_context_type = execution::context::native_handle_type;
-		using			 native_handle_type  = ::cl_mem;
-		static constexpr native_handle_type invalid_handle = nullptr;
+		using					value_type					  = MemoryType ;
+		using					pointer						  = MemoryType*;
+		using					reference					  = MemoryType&;
+		static inline constexpr device_memory::size_type size = MemoryCount * sizeof(MemoryType);
 
 		template <typename AccessType>
-		unmapped (execution::context&, AccessType, size_type);
+		unmapped (executor_type&, AccessType);
 		~unmapped();
 
-		unmapped (unmapped&);
-		unmapped (unmapped&&);
+		unmapped (const unmapped&) ;
+		unmapped (const unmapped&&);
 
 	public:
-		native_handle_type native_handle();
-		size_type		   size			();
+		device_memory& get_memory() { return __M_unmapped_handle; }
 
 	private:
-		native_handle_type  __M_unmapped_handle ;
-		size_type		    __M_unmapped_size   ;
-		execution::context& __M_unmapped_context;
+		device_memory __M_unmapped_handle;
 	};
 }
 
+template <typename MemoryType, accelerate::memory::types::size_type MemoryCount>
 template <typename AccessType>
-accelerate::memory::unmapped::unmapped(execution::context& exec, AccessType, size_type size)
-	: __M_unmapped_context(exec),
-	  __M_unmapped_size   (size)
-{
-	__M_unmapped_handle = ::clCreateBuffer(exec.native_handle(),
-										   AccessType::value,
-										   size,
-										   nullptr, nullptr);
-						  ::clRetainMemObject(__M_unmapped_handle);
-}
+accelerate::memory::device_memory::unmapped<MemoryType, MemoryCount>::unmapped(executor_type& exec, AccessType) 
+	: __M_unmapped_handle(exec, ::clCreateBuffer(exec.get_context(),
+												 AccessType::value ,
+												 sizeof(MemoryType),
+												 nullptr		   ,
+												 nullptr))		   {  }
+
+template <typename MemoryType, accelerate::memory::types::size_type MemoryCount>
+accelerate::memory::device_memory::unmapped<MemoryType, MemoryCount>::~unmapped() {  }
+
+template <typename MemoryType, accelerate::memory::types::size_type MemoryCount>
+accelerate::memory::device_memory::unmapped<MemoryType, MemoryCount>::unmapped (const unmapped& copy)
+	: __M_unmapped_handle (copy.__M_unmapped_handle)							  {  }
+
+template <typename MemoryType, accelerate::memory::types::size_type MemoryCount>
+accelerate::memory::device_memory::unmapped<MemoryType, MemoryCount>::unmapped(const unmapped&& move)
+	: __M_unmapped_handle (std::move(move.__M_unmapped_handle)) {  }

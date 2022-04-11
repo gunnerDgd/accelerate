@@ -14,15 +14,8 @@ accelerate::execution::context accelerate::execution::context::from_device(std::
 	return context(dv_context);
 }
 
-template <typename DeviceType>
-std::enable_if_t<std::is_base_of_v<accelerate::device::query::device_id, DeviceType>, 
-								   accelerate::execution::context>  accelerate::execution::context::from_device_type(DeviceType)
-{
-	auto		   dv_context = ::clCreateContextFromType(nullptr, DeviceType::id, nullptr, nullptr, nullptr);
-	return context(dv_context);
-}
+accelerate::execution::context::context (native_handle_type hnd) : __M_ctx_handle(hnd) {  }
+accelerate::execution::context::~context()											   { ::clReleaseContext(__M_ctx_handle); }
 
-accelerate::execution::context::context(native_handle_type hnd)   : __M_ctx_handle(hnd)				    {  }
-accelerate::execution::context::context (context&& move) noexcept : __M_ctx_handle(move.__M_ctx_handle) {  }
-accelerate::execution::context::context (context& copy)			  : __M_ctx_handle(copy.__M_ctx_handle) { ::clRetainContext (__M_ctx_handle); }
-accelerate::execution::context::~context()															    { ::clReleaseContext(__M_ctx_handle); }
+accelerate::execution::context::context (const context&& move) noexcept : __M_ctx_handle(move.__M_ctx_handle) {  }
+accelerate::execution::context::context (const context& copy)  noexcept : __M_ctx_handle(copy.__M_ctx_handle) { ::clRetainContext (__M_ctx_handle); }

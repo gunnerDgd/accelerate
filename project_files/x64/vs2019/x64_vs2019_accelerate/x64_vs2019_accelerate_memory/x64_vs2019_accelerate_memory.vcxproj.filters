@@ -19,6 +19,9 @@
     <Filter Include="Header Files\unmapped">
       <UniqueIdentifier>{9d2d2ba6-5887-44ea-b8dc-9fe756ec3ddd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\adapter">
+      <UniqueIdentifier>{f7606517-e8d8-4c94-bd7a-0097764fc917}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_traits.hpp">
@@ -30,15 +33,27 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\memory\unmapped\unmapped.hpp">
       <Filter>Header Files\unmapped</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory_operation.hpp">
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\utility.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\declare.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\memory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\adapter\pointer.hpp">
+      <Filter>Header Files\adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="variable.hpp">
+      <Filter>Header Files\adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\accelerate\memory\adapter\mapped_variable.hpp">
+      <Filter>Header Files\adapter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\memory\unmapped_memory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\source\memory\mapped_memory.cpp">
+    <ClCompile Include="..\..\..\..\..\source\memory\device_memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

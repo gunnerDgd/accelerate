@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\builtin\memory\memory_task_traits.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\event\event.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\forward.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\declare.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument_utility.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\kernel_task.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument\argument_utility.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\argument\mapped_argument.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\binded_task.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\task\kernel\await_task.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\task\task_event.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

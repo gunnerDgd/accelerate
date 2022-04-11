@@ -1,5 +1,5 @@
 #pragma once
-#include <accelerate/execution/program/program.hpp>
+#include <accelerate/execution/program.hpp>
 #include <type_traits>
 
 namespace accelerate::execution {

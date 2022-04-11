@@ -11,10 +11,11 @@ namespace accelerate::device {
 		using count_type		 = int;
 		class iterator;
 
-		template <typename DeviceType>
-		enumerator(DeviceType, platform::platform& pl)
+		template <typename DeviceType, typename PlatformType>
+		enumerator(DeviceType, PlatformType&& pl)
 		{
-			static_assert(std::is_base_of_v<query::device_id, DeviceType>, "[device::enumerator] Error :: Invalid Device Type.");
+			static_assert(std::is_base_of_v<query::device_id, DeviceType>					, "[device::enumerator] Error :: Invalid Device Type.");
+			static_assert(std::is_same_v	<std::decay_t<PlatformType>, platform::platform>, "[device::enumerator] Error :: Invalid Platform")    ;
 
 			::clGetDeviceIDs(pl.__M_pf_handle, DeviceType::id, 0, nullptr, (cl_uint*)&__M_dvenum_count);
 								__M_dvenum_handle = new native_handle_type[__M_dvenum_count];

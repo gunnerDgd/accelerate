@@ -1,7 +1,7 @@
 #pragma once
-#include <accelerate/device/device.hpp>
+#include <accelerate/builder/declare.hpp>
 
-namespace accelerate::execution {
+namespace accelerate::build {
 	class binary
 	{
 		friend class program;
@@ -25,8 +25,8 @@ namespace accelerate::execution {
 }
 
 template <typename MemoryObject>
-accelerate::execution::binary 
-accelerate::execution::binary::from_memory(device::device& src_dev, MemoryObject&& src_mem)
+accelerate::build::binary
+accelerate::build::binary::from_memory(device::device& src_dev, MemoryObject&& src_mem)
 {
 	return binary(src_dev, src_mem.address(), src_mem.size());
 }

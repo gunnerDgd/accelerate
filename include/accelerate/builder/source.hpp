@@ -1,14 +1,12 @@
 #pragma once
-#include <accelerate/device/device.hpp>
+#include <accelerate/builder/declare.hpp>
 #include <string>
 
-namespace accelerate::execution {
+namespace accelerate::build {
 	class source
 	{
-		friend class program;
-		friend class builder;
-		friend class build_target;
-
+		ACCELERATE_BUILD_SOUCE_FRIEND
+		
 		enum class source_location { memory_object, heap };
 		using	   source_pointer = std::uint8_t* ;
 		using	   source_size    = std::size_t   ;
@@ -21,8 +19,8 @@ namespace accelerate::execution {
 	public:
 		~source();
 		template <typename MemoryObject>
-		static source   from_memory  (device::device&, MemoryObject&&);
-		static source   from_string  (device::device&, std::string)   ;
+		static source from_memory  (device::device&, MemoryObject&&);
+		static source from_string  (device::device&, std::string)   ;
 
 	private:
 		source_location __M_src_location;
@@ -34,8 +32,8 @@ namespace accelerate::execution {
 }
 
 template <typename MemoryObject>
-accelerate::execution::source 
-accelerate::execution::source::from_memory(device::device& dev, MemoryObject&& memobj)
+accelerate::build::source
+accelerate::build::source::from_memory(device::device& dev, MemoryObject&& memobj)
 {
 	return source(dev, source_location::memory_object, memobj.address(), memobj.size());
 }

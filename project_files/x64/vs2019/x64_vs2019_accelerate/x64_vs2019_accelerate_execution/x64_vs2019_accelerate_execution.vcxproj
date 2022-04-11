@@ -23,18 +23,12 @@
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\declare.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\executor.hpp" />
     <ClInclude Include="..\..\..\..\..\include\accelerate\execution\kernel.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\binary.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\program.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\build_target.hpp" />
-    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program\source.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\accelerate\execution\program.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\execution\binary.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\context.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\execution\build_target.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\executor.cpp" />
     <ClCompile Include="..\..\..\..\..\source\execution\program.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\program\source.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
